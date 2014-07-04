@@ -466,6 +466,7 @@
                         <div class="form-group input-group">
                             <span class="input-group-addon">Duration : </span>
                             <input class="form-control" type="text" placeholder="Duration for this checkin (ex : 1h, 2h ...)">
+                            <div class="slider slider-horizontal" style="width: 140px;"><div class="slider-track"><div class="slider-selection" style="left: 0%; width: 50%;"></div><div class="slider-handle round" style="left: 50%;"></div><div class="slider-handle round hide" style="left: 0%;"></div></div><div class="tooltip top" style="top: -40px; left: 23px;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Current value: 5</div></div><input type="text" id="sl1" value="4" class="span2" style=""></div>
                         </div>
                         <div class="form-group input-group">
                             <span  style="width: 90px;" class="input-group-addon">Note     : </span>
@@ -500,6 +501,33 @@
     $(document).ready(function() {
         $('#dataTables-example').dataTable();
     });
+
+    if (top.location != location) {
+top.location.href = document.location.href ;
+}
+$(function(){
+window.prettyPrint && prettyPrint();
+$('#sl1').slider({
+formater: function(value) {
+return 'Current value: '+value;
+}
+});
+$('#sl2').slider();
+var RGBChange = function() {
+$('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
+};
+var r = $('#R').slider()
+.on('slide', RGBChange)
+.data('slider');
+var g = $('#G').slider()
+.on('slide', RGBChange)
+.data('slider');
+var b = $('#B').slider()
+.on('slide', RGBChange)
+.data('slider');
+$('#eg input').slider();
+}); 
+
     </script>
 
 </body>
