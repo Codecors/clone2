@@ -501,33 +501,6 @@
     $(document).ready(function() {
         $('#dataTables-example').dataTable();
     });
-
-    if (top.location != location) {
-top.location.href = document.location.href ;
-}
-$(function(){
-window.prettyPrint && prettyPrint();
-$('#sl1').slider({
-formater: function(value) {
-return 'Current value: '+value;
-}
-});
-$('#sl2').slider();
-var RGBChange = function() {
-$('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
-};
-var r = $('#R').slider()
-.on('slide', RGBChange)
-.data('slider');
-var g = $('#G').slider()
-.on('slide', RGBChange)
-.data('slider');
-var b = $('#B').slider()
-.on('slide', RGBChange)
-.data('slider');
-$('#eg input').slider();
-}); 
-
     </script>
 
 </body>
